@@ -5,13 +5,19 @@ manifest:
   self:
     west-commands: scripts/west-commands.yml
 
+  defaults:
+    remote: origin
+
   remotes:
-    - name: zephyrproject-rtos
-      url-base: https://github.com/zephyrproject-rtos
+    - name: origin
+      url-base: git@github.com:dipakgmx
+
+    - name: upstream
+      url-base: git@github.com:zephyrproject-rtos
 
   projects:
     - name: zephyr
-      remote: zephyrproject-rtos
+      remote: origin
       revision: main
       import:
         # By using name-allowlist we can clone only the modules that are
@@ -19,4 +25,10 @@ manifest:
         name-allowlist:
           - cmsis_6    # required by the ARM port for Cortex-M
           - hal_nordic # required by the custom_plank board (Nordic based)
+          - hal_nxp
           - hal_stm32  # required by the nucleo_f302r8 board (STM32 based)
+          - littlefs
+          - mbedtls
+          - mcumgr
+          - segger
+          - zcbor
