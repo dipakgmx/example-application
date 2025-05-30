@@ -1,0 +1,26 @@
+/*
+ * Copyright (c) 2025 Dipak Shetty <shetty.dipak@gmx.com>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <freq.h>
+
+/delete-node/ &mx25r6435fm2il0;
+/ {
+	aliases {
+		gas-sensor= &bme680;
+	};
+};
+
+&lpspi1 {
+	status = "okay";
+	cs-gpios = <&gpioc 5 GPIO_ACTIVE_LOW>;
+
+	bme680: bme680@0 {
+		compatible = "bosch,bme680";
+		spi-max-frequency = <DT_FREQ_M(1)>;
+		reg = <0x0>;
+		zephyr,pm-device-runtime-auto;
+	};
+};
