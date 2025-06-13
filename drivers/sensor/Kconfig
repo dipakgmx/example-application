@@ -3,4 +3,5 @@
 
 if SENSOR
 rsource "example_sensor/Kconfig"
+rsource "bme68x_iaq/Kconfig"
 endif # SENSOR
