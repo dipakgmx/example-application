@@ -15,6 +15,12 @@ manifest:
     - name: upstream
       url-base: git@github.com:zephyrproject-rtos
 
+    - name: bosch
+      url-base: https://github.com/boschsensortec
+
+  group-filter:
+    - -bsec
+
   projects:
     - name: zephyr
       remote: origin
@@ -29,6 +35,23 @@ manifest:
           - hal_stm32  # required by the nucleo_f302r8 board (STM32 based)
           - littlefs
           - mbedtls
+          - mcuboot
           - mcumgr
           - segger
           - zcbor
+
+    - name: bme68x
+      repo-path: Bosch-BME68x-Library
+      remote: bosch
+      path: modules/lib/bme68x
+      revision: v1.1.40407
+      groups:
+        - bsec
+
+    - name: bsec
+      repo-path: Bosch-BSEC2-Library
+      remote: bosch
+      path: modules/lib/bsec
+      revision: v1.5.2400
+      groups:
+        - bsec
