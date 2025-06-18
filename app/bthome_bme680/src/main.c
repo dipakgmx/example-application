@@ -7,7 +7,6 @@
 #include <zephyr/device.h>
 #include <zephyr/drivers/sensor.h>
 #include "sensor_handler.h"
-#include "smp_bt_handler.h"
 
 #include <zephyr/bluetooth/bluetooth.h>
 
