@@ -1,0 +1,16 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+
+/ {
+	aliases {
+		rtc = &rv8803;
+	};
+};
+
+&flexcomm2 {
+
+	rv8803: rv8803@32 {
+		compatible = "microcrystal,rv8803";
+		status = "okay";
+		reg = <0x32>;
+	};
+};
