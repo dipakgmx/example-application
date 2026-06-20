@@ -39,6 +39,7 @@ manifest:
           - mcumgr
           - segger
           - zcbor
+          - tf-psa-crypto
 
     - name: bme68x
       repo-path: Bosch-BME68x-Library
